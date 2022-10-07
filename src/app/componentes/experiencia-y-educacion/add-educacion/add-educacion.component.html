@@ -1,0 +1,46 @@
+<div class="container" style="text-align: left;" *ngIf="!showFinalizacion">
+    <h2>Creando Educacion</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Escuela</label>
+      <input type="nombre" formControlName="escuela" 
+      class="form-control" id="escuela"  >
+      <div id="escuela" class="form-text"></div>
+    </div>
+
+    <div class="mb-3">
+      <label for="" class="form-label">Titulo</label>
+      <input type="" class="form-control" id="titulo" formControlName="titulo" >
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Logo</label>
+      <input type="" class="form-control" id="logo" formControlName="logo" >
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Finalizacion</label>
+        <input type="" class="form-control" id="titulo" formControlName="finalizacion" >
+      </div>
+
+    <div class="mb-3" style="display:none">
+        <label for="" class="form-label">persona_id</label>
+        <input type="" class="form-control" id="descripcion" formControlName="persona_id" readonly>
+        <div id="" class="form-text"></div>
+    </div> 
+
+    
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+    <button type="button" class="btn btn-danger" (click)="finalizar()">Cancelar Creacion </button>
+    
+  </form>
+</div>
+<div class="card"*ngIf="showFinalizacion" style="background-color: white!important;">
+  <h5 class="card-header" >Creacion</h5>
+  <div class="card-body">
+    <h5 class="card-title">La Creacion fue realizada correctamente!!</h5>
+
+    <button class="btn btn-primary" (click)="finalizar()" >Finalizar</button>
+  </div>
+</div>

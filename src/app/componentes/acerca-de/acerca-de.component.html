@@ -1,0 +1,45 @@
+<header style="text-align: center;">
+    <h1> {{miPorfolio.nombre}} {{miPorfolio.apellido}}</h1>
+    <img [src]="miPorfolio.backimage"  class="img-fluid" id="banner" alt="banner">
+    
+</header>
+<section id="acercade" style="margin-bottom: 25px;margin-top: 25px;">  
+
+    <div class="row">
+
+        <div class="col-md-2 col-12" style="text-align: center;padding-top: 20px;" >
+            <img [src]="miPorfolio.personimage"  alt="Foto de perfil" style="background-color: black;max-height: 160px;" class="img-fluid rounded-circle img-thumbnail">
+        </div>
+        <div class="col-md-9 col-12" style="padding-top: 20px;">
+            <div class="row">
+
+                <div class="col-12" *ngIf="showedit">
+                    <app-edit-acerca-de id=""style="text-align: left;" (enviarEmitter)="reloadData()">
+                    </app-edit-acerca-de>
+                </div>
+                <div class="col-12" *ngIf="!showedit">
+                    <h1 style="float: left;">{{miPorfolio.titulo}}</h1>
+                    <span style="float: right;">
+                    <a>
+                        <button class="border-0" (click)="editar()">                            
+                        <span *ngIf="!showedit"><img src="assets/lapiz.png" alt="Editar"> </span>
+                        
+                        </button>
+                    </a>
+                    </span>
+                </div>
+
+                <div class="col-12" *ngIf="!showedit">
+                    <article>
+                    {{miPorfolio.descripcion}}
+                    </article>
+                </div>
+                
+
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+
+
+    </div>
+</section>

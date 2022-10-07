@@ -1,0 +1,130 @@
+<section id="educacion">
+    
+    <div class="row">
+
+        <div class="col-md-4 col-0"></div>
+
+        <div class="col-md-8 col-0">
+            <h2>Educacion</h2>
+            <a>
+              <button class="border-0" (click)="crearEducacion()">                            
+               <h3>Agregar educacion
+                <img src="assets/plus.png" style="padding-left:10px;" alt="Agregar Educacion"
+                *ngIf="!showedit && !showCrear&& !showDelEdu">
+
+              </h3>     
+              </button>
+            </a>
+            <app-add-educacion [id_persona]="educacionList[0].persona_id" 
+              (enviarEmitter)="reloadData(fromWhere='addEdu')" 
+              *ngIf="showCrear" >
+            </app-add-educacion>
+            <div class="card mb-3" style="max-width: 540px;" *ngFor="let educacion of educacionList">
+                  <div class="row no-gutters">
+                    <div style="text-align:right;">
+                      
+                    <a>
+                      <button class="border-0" (click)="editarEdu(educacion.id)">                            
+                       <span *ngIf="!showedit && !showCrear&& !showDelEdu"><img src="assets/lapiz.png" alt="Editar educacion"> </span>
+
+                      </button>
+                    </a>
+                    
+                    <a>
+                      <button class="border-0" (click)="borrarEducacion(educacion.id)" *ngIf="!showedit && !showCrear&& !showDelEdu">
+                      <img src="assets/delete.png" alt="Borrar educacion">
+                      </button>
+                    </a>
+                  </div>
+                  
+                    <app-edit-educacion id="{{educacion.id}}" [id]="educacion.id"
+                    (enviarEmitter)="reloadData(fromWhere='editEdu')"
+                    *ngIf="showedit && (idToShow==educacion.id)" 
+                    ></app-edit-educacion>
+
+                    <app-delete-educacion id="{{educacion.id}}" [id]="educacion.id"
+                    (enviarEmitter)="reloadData(fromWhere='delEdu')"
+                    *ngIf="showDelEdu && (idToDelEdu==educacion.id)" 
+                    >
+
+                    </app-delete-educacion>
+                    
+                    
+                    <div class="col-md-2"> 
+                      <img class="rounded-circle img-thumbnail" [src]="educacion.logo" alt="Logo {{educacion.escuela}}" style="max-height: 80px;width:auto;position: relative;
+                      top: 50%;
+                      transform: translateY(-50%);">
+                    </div>
+                    <div class="col-md-8" style="text-align: left;">
+                      
+                      <div class="card-body">
+                        <h5 class="card-title">{{educacion.titulo}}</h5>
+                        <p class="card-text">{{educacion.escuela}}</p>
+                        <p class="card-text"><small class="text-muted">{{educacion.finalizacion}}</small></p>
+                      </div>
+                    </div>
+                  </div>
+            </div>		
+
+        </div>
+    
+    </div>	
+</section>	
+
+<section id="experiencia">
+        
+  <div class="row">
+
+      <div class="col-md-4 col-0"></div>
+
+      <div class="col-md-8 col-0">
+          <h2>Experiencia</h2>
+          <a>
+            <button class="border-0" (click)="crearExp()">                            
+             <h3  *ngIf="!showEditExp && !showDelExp">Agregar experiencia
+              <img src="assets/plus.png" style="padding-left:10px;" *ngIf="!showCrearExp" alt="Agregar experiencia">
+            </h3>     
+            </button>
+          </a>
+          <app-add-experiencia [id_persona]="experienciaList[0].persona_id" 
+          (enviarEmitter)="reloadData(fromWhere='addExp')" 
+          *ngIf="showCrearExp" >
+          </app-add-experiencia>
+          <div class="card mb-3" style="max-width: 540px;" *ngFor="let experiencia of experienciaList">
+                <div class="row no-gutters">
+                  <div style="text-align:right;">
+                    <a>
+                      <button class="border-0" (click)="editarExp(experiencia.id)" *ngIf="!showEditExp && !showCrearExp && !showDelExp">                            
+                       <span ><img src="assets/lapiz.png" alt="Editar experiencia"> </span>
+                       
+                      </button>
+                    </a>
+                    <a>
+                      <button class="border-0" (click)="borrarExp(experiencia.id)"  *ngIf="!showEditExp && !showCrearExp && !showDelExp">
+                      <img src="assets/delete.png" alt="Borrar experiencia">
+                      </button>
+                    </a>
+                  </div>
+
+                  <app-edit-experiencia 
+                  id="{{experiencia.id}}" [id]="experiencia.id" (enviarEmitter)="reloadData(fromWhere='editExp')" *ngIf="showEditExp && (idToShowExp==experiencia.id)">
+                </app-edit-experiencia>
+
+                <app-delete-experiencia 
+                id="{{experiencia.id}}" [id]="experiencia.id" (enviarEmitter)="reloadData(fromWhere='delExp')" *ngIf="showDelExp && (idToDelExp==experiencia.id)">
+              </app-delete-experiencia>                
+
+                  <div class="col-md-8" >
+                    <div class="card-body">
+                      <h5 class="card-title">{{experiencia.empresa}}</h5>
+                      <p class="card-text">{{experiencia.puesto}}- {{experiencia.descripcion}}</p>
+                      <p class="card-text"><small class="text-muted">{{experiencia.periodo}}</small></p>
+                    </div>
+                  </div>
+                </div>
+          </div>
+
+      </div>
+      <div class="col-md-2 col-0"></div>
+  </div>
+</section>	

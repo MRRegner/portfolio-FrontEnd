@@ -1,0 +1,70 @@
+<section id="skills">
+  <div class="row">
+
+    <div class="col-md-2 col-0"></div>
+    <div class="col-md-8 col-12">
+  <h2>Skills</h2>
+  <a>
+    <button class="border-0" (click)="crear()">                            
+     <h2>Agregar skill
+      <img src="assets/plus.png" style="padding-left:10px;" *ngIf="!showedit && !showCrear&& !showDel" alt="Agregar Skill">
+      
+    </h2>     
+    </button>
+  </a>
+  <app-add-skill [id_persona]="skillsList[0].persona_id" (enviarEmitter)="reloadData(fromWhere='add')" 
+  *ngIf="showCrear" >
+  </app-add-skill>
+
+    <div class="row">
+      
+
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12" *ngFor="let skills of skillsList" style="text-align:center;margin:20px 0px 25px;">
+          <div style="text-align:right;">
+
+            <a>
+              <button class="border-0" (click)="editar(skills.id)">                            
+               <span *ngIf="!showedit && !showCrear&& !showDel"><img src="assets/lapiz.png" alt="Editar Skill"> </span>
+               
+              </button>
+            </a>
+
+            <a>
+              <button class="border-0" (click)="borrar(skills.id)" *ngIf="!showedit && !showCrear&& !showDel">
+              <img src="assets/delete.png" alt="Borrar Skill">
+              </button>
+            </a>
+        </div>
+
+          <app-edit-skill id="{{skills.id}}" [id]="skills.id" (enviarEmitter)="reloadData(fromWhere='edit')" 
+          *ngIf="showedit && (idToShow==skills.id)" 
+          ></app-edit-skill>
+          <app-delete-skill id="{{skills.id}}" [id]="skills.id" (enviarEmitter)="reloadData(fromWhere='delete')" 
+          *ngIf="showDel && (idToShow==skills.id)"></app-delete-skill>
+          
+          <circle-progress
+          *ngIf="(!showedit && !showDel) || (idToShow!==skills.id)"
+          [percent]="skills.nivel"
+          [radius]="50"
+          [showUnits]="false"
+          [title]="[skills.tecnologia]"
+          [titleFontSize]="'1.3em'"
+          [showSubtitle]="false"
+          [outerStrokeWidth]="8"
+          [innerStrokeWidth]="4"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="300"
+        ></circle-progress>
+
+
+        </div>
+        
+
+
+      </div>
+    </div>
+    <div class="col-md-2 col-0"></div>
+    </div>		
+</section>

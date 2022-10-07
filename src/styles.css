@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+article{
+	color:#74808a;
+  font-family: 'Kanit', sans-serif !important;
+  font-size: 22px !important;
+  }
+
+button{
+  background-color: white;
+}
+body{
+  color: black !important;
+  background-color: #c4c3c2!important;
+}
+h1,h2{
+  font-family: 'Lobster', cursive !important;
+}
+
+div{
+    background-color: #c4c3c2!important;
+}
+button{
+  background-color: #c4c3c2 !important;
+}
+.container-fluid, .navbar-toggler, .collapse 
+{
+  background-color: #212529 !important;
+}
+ul
+{
+  background-color: #212529 !important;
+}
+.btn-primary{
+  background-color: blue !important;
+}
+.btn-danger{
+  background-color: red !important;
+}
+.nav-link:focus {
+  color: white!important;
+}

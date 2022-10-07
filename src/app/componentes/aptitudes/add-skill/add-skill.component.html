@@ -1,0 +1,37 @@
+<div class="container" style="text-align: left;" *ngIf="!showFinalizacion">
+    <h2>Creando Tecnologia</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Tecnologia</label>
+      <input type="nombre" formControlName="tecnologia" 
+      class="form-control" id="nombre"  >
+      <div id="nombre" class="form-text"></div>
+    </div>
+
+    <div class="mb-3">
+      <label for="" class="form-label">Nivel</label>
+      <input type="" class="form-control" id="apellido" formControlName="nivel" >
+    </div>
+
+    <div class="mb-3" style="display:none">
+        <label for="" class="form-label">persona_id</label>
+        <input type="" class="form-control" id="descripcion" formControlName="persona_id" readonly>
+        <div id="" class="form-text"></div>
+    </div> 
+
+    
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+    <button type="button" class="btn btn-danger" (click)="finalizar()">Cancelar Creacion </button>
+  </form>
+</div>
+<div class="card"*ngIf="showFinalizacion" style="background-color: white!important;">
+  <h5 class="card-header" >Creacion</h5>
+  <div class="card-body">
+    <h5 class="card-title">La Creacion fue realizada correctamente!!</h5>
+
+    <button class="btn btn-primary" (click)="finalizar()" >Finalizar</button>
+  </div>
+</div>

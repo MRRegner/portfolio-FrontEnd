@@ -1,0 +1,72 @@
+<div class="card"*ngIf="showFinalizacion" style="background-color: white!important;">
+  <h5 class="card-header" >Edicion</h5>
+  <div class="card-body">
+    <h5 class="card-title">La edicion fue realizada correctamente!!</h5>
+
+    <button class="btn btn-primary" (click)="finalizar()" >Finalizar</button>
+  </div>
+</div>
+<div class="container border border-dark" *ngIf="!showFinalizacion" style="border-width:3px !important;padding-bottom: 15px;border-style: dashed !important;">
+    <h1>Editar Persona</h1>
+    
+<form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+    
+    <div class="mb-3" style="display:none">
+        <label for="id" class="form-label">Id</label>
+        <input type="id" formControlName="id" 
+        class="form-control" id="id"  readonly>
+        <div id="id" class="form-text"></div>
+      </div>
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="nombre" formControlName="nombre" 
+      class="form-control" id="nombre"  >
+      <div id="nombre" class="form-text"></div>
+    </div>
+
+    <div class="mb-3">
+      <label for="" class="form-label">Apellido</label>
+      <input type="" class="form-control" id="apellido" formControlName="apellido" >
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Email</label>
+        <input type="" class="form-control" id="email" formControlName="email"  >
+        <div id="" class="form-text"></div>
+    </div> 
+
+    <div class="mb-3">
+        <label for="" class="form-label">Descripcion</label>
+        <input type="" class="form-control" id="descripcion" formControlName="descripcion" >
+        <div id="" class="form-text"></div>
+    </div> 
+
+    <div class="mb-3">
+        <label for="" class="form-label">Titulo</label>
+        <input type="" class="form-control" id="titulo" formControlName="titulo">
+        <div id="" class="form-text"></div>
+    </div> 
+
+    <div class="mb-3">
+        <label for="" class="form-label">BackImage</label>
+        <input type="" class="form-control" id="backimage" formControlName="backimage">
+        <div id="" class="form-text"></div>
+    </div> 
+
+    <div class="mb-3">
+        <label for="" class="form-label">Personimage</label>
+        <input type="" class="form-control" id="personimage" formControlName="personimage" >
+        <div id="" class="form-text"></div>
+    </div> 
+
+    <div class="mb-3">
+        <label for="" class="form-label">Ubicacion</label>
+        <input type="" class="form-control" id="ubicacion" formControlName="ubicacion" >
+        <div id="" class="form-text"></div>
+    </div> 
+
+    <button type="submit" class="btn btn-primary">Editar</button>
+    <button type="button" class="btn btn-danger" (click)="finalizar()">Cancelar Edicion </button>
+  </form>
+</div>
+
