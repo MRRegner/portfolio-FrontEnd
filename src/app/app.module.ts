@@ -26,6 +26,9 @@ import { AddExperienciaComponent } from './componentes/experiencia-y-educacion/a
 import { DeleteExperienciaComponent } from './componentes/experiencia-y-educacion/delete-experiencia/delete-experiencia.component';
 import { DeleteEducacionComponent } from './componentes/experiencia-y-educacion/delete-educacion/delete-educacion.component';
 import { DeleteSkillComponent } from './componentes/aptitudes/delete-skill/delete-skill.component';
+import { AddLogroComponent } from './componentes/logros/add-logro/add-logro.component';
+import { DeleteLogroComponent } from './componentes/logros/delete-logro/delete-logro.component';
+import { EditLogroComponent } from './componentes/logros/edit-logro/edit-logro.component';
 
   
 @NgModule({
@@ -47,7 +50,10 @@ import { DeleteSkillComponent } from './componentes/aptitudes/delete-skill/delet
     AddExperienciaComponent,
     DeleteExperienciaComponent,
     DeleteEducacionComponent,
-    DeleteSkillComponent, 
+    DeleteSkillComponent,
+    AddLogroComponent,
+    DeleteLogroComponent,
+    EditLogroComponent, 
   ],
   imports: [
     BrowserModule,

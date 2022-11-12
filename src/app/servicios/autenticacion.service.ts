@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AutenticacionService {
+  //url="http://localhost:8080/api/auth/signin";
   url="https://pure-reef-99211.herokuapp.com/api/auth/signin";
   currentUserSubject: BehaviorSubject<any>;
   constructor(private http:HttpClient) { 

@@ -1,0 +1,54 @@
+<div class="container" style="text-align: left;" *ngIf="!showFinalizacion">
+    <h2>Editando Proyecto</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+
+        <div class="mb-3" style="display:none">
+            <label for="nombre" class="form-label">ID</label>
+            <input type="nombre" formControlName="id" class="form-control" id="nombre" readonly>
+            <div id="nombre" class="form-text"></div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Titulo</label>
+            <input type="nombre" formControlName="titulo" class="form-control" id="titulo">
+            <div id="titulo" class="form-text"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Descripcion</label>
+            <input type="" class="form-control" id="descripcion" formControlName="descripcion">
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Imagen</label>
+            <input type="" class="form-control" id="imagen" formControlName="imagen">
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Url</label>
+            <input type="" class="form-control" id="url" formControlName="url">
+        </div>
+
+        <div class="mb-3" style="display:none">
+            <label for="" class="form-label">persona_id</label>
+            <input type="" class="form-control" id="descripcion" formControlName="persona_id" readonly>
+            <div id="" class="form-text"></div>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary">Editar</button>
+        <button type="button" class="btn btn-danger" (click)="finalizar()">Cancelar Edicion </button>
+
+    </form>
+</div>
+<div class="card" *ngIf="showFinalizacion" style="background-color: white!important;">
+    <h5 class="card-header">Edicion</h5>
+    <div class="card-body">
+        <h5 class="card-title">La edicion fue realizada correctamente!!</h5>
+
+        <button class="btn btn-primary" (click)="finalizar()">Finalizar</button>
+    </div>
+</div>

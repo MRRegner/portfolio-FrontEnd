@@ -1,0 +1,39 @@
+<div class="container" style="text-align: left;" *ngIf="!showFinalizacion">
+    <h2>Borrando Proyecto</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Titulo</label>
+            <input type="nombre" readonly formControlName="titulo" 
+            class="form-control" id="titulo"  >
+            <div id="titulo" class="form-text"></div>
+          </div>
+      
+          <div class="mb-3">
+            <label for="" class="form-label">Descripcion</label>
+            <input type="" class="form-control" id="descripcion" readonly formControlName="descripcion" >
+          </div>
+      
+          <div class="mb-3">
+              <label for="" class="form-label">Imagen</label>
+              <input type="" class="form-control" id="imagen" readonly formControlName="imagen" >
+            </div>
+      
+            <div class="mb-3">
+              <label for="" class="form-label">Url</label>
+              <input type="" class="form-control" id="url" readonly formControlName="url" >
+            </div>
+
+    <button type="submit" class="btn btn-primary">Borrar</button>
+    <button type="button" class="btn btn-danger" (click)="finalizar()">Cancelar Borrado </button>
+  </form>
+</div>
+<div class="card"*ngIf="showFinalizacion" style="background-color: white!important;">
+  <h5 class="card-header" >Borrado</h5>
+  <div class="card-body">
+    <h5 class="card-title">El borrado fue realizado correctamente!!</h5>
+
+    <button class="btn btn-primary" (click)="finalizar()" >Finalizar</button>
+  </div>
+</div>

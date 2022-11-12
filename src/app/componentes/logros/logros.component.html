@@ -1,38 +1,73 @@
 <section id="proyectos">
-        
-    <div class="row">
 
-        <div class="col-md-4 col-0"></div>
+  <div class="row">
 
-        <div class="col-md-8 col-0">
-            <h2>Proyectos</h2>
-            <div class="card mb-3" style="max-width: 540px;">
-                  <div class="row no-gutters">
-                    <div class="col-md-4">
-                      <img src="https://lithium.com.ar/storage/lilogum.png" class="card-img" alt="Lithium Logo"
-                      style="max-height: 80px;width:auto;position: relative;
-                      top: 50%;
-                      transform: translateY(-50%);"
-                      >
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">lithium.com.ar</h5>
-                        <p class="card-text">Sitio e-commerce utilizando MercadoPago para realizar ventas. 
-                          Desarrollado con Laravel (php FrameWork), HTML, CSS y JS, utilizando Mysql para base de datos. 
-                          Contiene un sistema de acceso restringido para poder realizar carga, modificacion y eliminacion de registros.
-                        </p>
-                        <a href="https://lithium.com.ar" class="btn btn-dark" target="_blank" style="font-size:large;"> 
-                          
-                          Visitar sitio!  <img src="assets/eyew.png" height="20px" alt="Visitar sitio"></a>
+    <div class="col-md-4 col-0"></div>
 
-                        <p class="card-text"><small class="text-muted"></small></p>
-                      </div>
-                    </div>
-                  </div>
+    <div class="col-md-8 col-0">
+      <h2>Proyectos</h2>
+      <a>
+        <button class="border-0" (click)="crear()">
+          <h2>Agregar Proyecto
+            <img src="assets/plus.png" style="padding-left:10px;" *ngIf="!showedit && !showCrear&& !showDel"
+              alt="Agregar Skill">
+
+          </h2>
+        </button>
+      </a>
+      <app-add-logro [id_persona]="logrosList[0].persona_id" (enviarEmitter)="reloadData(fromWhere='add')"
+        *ngIf="showCrear">
+      </app-add-logro>
+
+      <div class="card mb-3" style="max-width: 540px;" *ngFor="let logros of logrosList">
+
+        <div class="row no-gutters">
+          <div style="text-align:right;">
+
+            <a>
+              <button class="border-0" (click)="editar(logros.id)">
+                <span *ngIf="!showedit && !showCrear&& !showDel">
+                  <img src="assets/lapiz.png" alt="Editar Skill"> 
+                </span>
+              </button>
+            </a>
+
+            <a>
+              <button class="border-0" (click)="borrar(logros.id)" *ngIf="!showedit && !showCrear&& !showDel">
+                <img src="assets/delete.png" alt="Borrar Skill">
+              </button>
+            </a>
+          </div>
+
+          <app-edit-logro id="{{logros.id}}" [id]="logros.id" (enviarEmitter)="reloadData(fromWhere='edit')"
+            *ngIf="showedit && (idToShow==logros.id)"></app-edit-logro>
+
+          <app-delete-logro id="{{logros.id}}" [id]="logros.id" (enviarEmitter)="reloadData(fromWhere='delete')"
+            *ngIf="showDel && (idToShow==logros.id)"></app-delete-logro>
+
+          <div class="col-md-4">
+            <img [src]="logros.imagen" class="card-img" alt={{logros.titulo}} style="max-height: 80px;width:auto;position: relative;
+                  top: 50%;
+                  transform: translateY(-50%);">
+          </div>
+
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{logros.titulo}}</h5>
+              <p class="card-text">
+                {{logros.descripcion}}
+              </p>
+              <a *ngIf="logros.url" href={{logros.url}} class="btn btn-dark" target="_blank" style="font-size:large;">
+                Visitar sitio!
+                <img src="assets/eyew.png" height="20px" alt="Visitar sitio">
+              </a>
+
+              <p class="card-text"><small class="text-muted"></small></p>
             </div>
-
-
+          </div>
         </div>
-    </div>			
-</section>	
+      </div>
+
+    </div>
+  </div>
+</section>
